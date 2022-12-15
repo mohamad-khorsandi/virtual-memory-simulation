@@ -1,4 +1,6 @@
 import enum
 
 class State(enum.Enum):
-    pass
+    ready = 1
+    running = 2
+    blocked = 3
