@@ -19,7 +19,7 @@ class Process:
         while line:
             ins_type = line.split(' ')[0]
             ins_num = line.split(' ')[1]
-            inst = Instruction(ins_type, int(ins_num), self)
+            inst = Instruction(ins_type, float(ins_num), self)
             self.inst_list.append(inst)
             line = file.readline()
             
