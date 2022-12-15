@@ -31,8 +31,21 @@ class Process:
 
         self.inst_list[self.PC].run()
 
-        self.state = "ready"
+        self.state = State.ready
     
     def block_process(self):
         self.state = State.blocked
+    
+    def unblock_process(self):
+        self.state = State.ready
+    
+    def show_context(self):
+        print("Process ID : {}".format(self.id))
+        print("Instruction Register : {}".format(self.IR).endswith("\n\n"))
+        print("Accumulator : {}".format(self.ACC).endswith("\t\t"))
+        print("Temp : {}".format(self.TMP))
+        print("Program Counter : ".format(self.PC).endswith("\t\t"))
+        print("State : {}".format(self.state.value))
+
+
 
