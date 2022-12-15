@@ -24,7 +24,14 @@ class Process:
             line = file.readline()
             
     def run_process(self):
+        if self.state == State.blocked :
+            return
+
+        self.state = State.running
+
         self.inst_list[self.PC].run()
+
+        self.state = "ready"
     
     def block_process(self):
         self.state = State.blocked

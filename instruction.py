@@ -6,10 +6,7 @@ class Instruction:
         self.process = process
 
     def run(self):
-        if self.process.state == State.blocked :
-            return
-        else :
-            self.process.state = State.running
+
         
         if self.ins_type == "load":
             self.process.IR = self.ins_type
@@ -28,7 +25,7 @@ class Instruction:
             self.process.TMP = self.ins_num
             self.process.ACC *= self.process.TMP
         
-        self.process.state = "ready"
+
         self.process.PC += 1
         
         
