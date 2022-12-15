@@ -8,6 +8,7 @@ def main():
     file = open(commands_file, 'r')
     cmd_args = file.readline().split()
     loop_counter = 0
+
     while cmd_args:
         print("loop: " + str(loop_counter) + " -----------------------------------------------------------------")
         loop_counter += 1
@@ -36,6 +37,8 @@ def main():
         elif cmd == "show_context":
             proc_list[proc_id].show_context()
 
+        elif cmd == "kill_process":
+            del proc_list[proc_id]
 
         cmd_args = file.readline().split()
 

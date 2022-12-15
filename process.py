@@ -6,12 +6,13 @@ class Process:
         self.state = None
         self.inst_list = []
 
-        self.PC = 0
+        self.PC = None
         self.IR = None
         self.TMP = None
         self.ACC = None
 
     def create_process(self, id, file_name):
+        self.PC = 0
         self.id = id
         file = open(file_name, 'r')
         line = file.readline()
@@ -25,6 +26,7 @@ class Process:
             
     def run_process(self):
         if self.state == State.blocked :
+            print("this process is blocked")
             return
 
         self.state = State.running
@@ -41,10 +43,10 @@ class Process:
     
     def show_context(self):
         print("Process ID : {}".format(self.id))
-        print("Instruction Register : {}".format(self.IR).endswith("\n\n"))
-        print("Accumulator : {}".format(self.ACC).endswith("\t\t"))
+        print("Instruction Register : {}".format(self.IR), end='\n\n')
+        print("Accumulator : {}".format(self.ACC), end="\t\t")
         print("Temp : {}".format(self.TMP))
-        print("Program Counter : ".format(self.PC).endswith("\t\t"))
+        print("Program Counter : {}".format(self.PC), end="\t\t")
         print("State : {}".format(self.state.value))
 
 
