@@ -1,3 +1,4 @@
+from state import State
 class Instruction:
     def __int__(self, ins_type, ins_num, process):
         self.ins_type = ins_type
@@ -5,10 +6,10 @@ class Instruction:
         self.process = process
 
     def run(self):
-        if self.process.state == "blocked"
+        if self.process.state == State.blocked :
             return
-        else
-            self.process.state = "running"
+        else :
+            self.process.state = State.running
         
         if self.ins_type == "load":
             self.process.IR = self.ins_type
@@ -28,6 +29,8 @@ class Instruction:
             self.process.ACC *= self.process.TMP
         
         self.process.state = "ready"
+        self.process.PC += 1
+        
         
 
 
